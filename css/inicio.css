@@ -1,0 +1,666 @@
+
+/* =========================================
+   1. VARIÁVEIS DE CORES
+========================================= */
+
+:root {
+    --verde-escuro: #0B1F1A;
+    --verde-petroleo: #12352B;
+    --verde-card: #1B493A;
+
+    --verde-esmeralda: #45C99A;
+    --verde-botao: #279B75;
+
+    --branco: #EAF5EF;
+    --texto: #C0D8CC;
+
+    --borda: rgba(69, 201, 154, 0.20);
+}
+
+
+/* =========================================
+   2. CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    background: var(--verde-escuro);
+    color: var(--branco);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================
+   3. TELA PRINCIPAL
+========================================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: radial-gradient(
+        circle at 30% 40%,
+        #1B493A,
+        #0B1F1A 70%
+    );
+
+    color: var(--branco);
+    overflow: hidden;
+}
+
+
+/* =========================================
+   4. MENU DE NAVEGAÇÃO
+========================================= */
+
+.menu {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 56px;
+    border-bottom: 1px solid var(--borda);
+}
+
+
+/* LOGO */
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 28px;
+    color: var(--branco);
+}
+
+.logo span {
+    color: var(--verde-esmeralda);
+}
+
+
+/* LINKS */
+
+.menu ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.menu ul a {
+    color: var(--branco);
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.menu ul a:hover {
+    color: var(--verde-esmeralda);
+}
+
+
+/* =========================================
+   5. CÍRCULOS DECORATIVOS
+========================================= */
+
+.circulo {
+    position: absolute;
+    border: 1px solid rgba(139, 230, 192, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.c1 {
+    width: 150px;
+    height: 150px;
+    top: 90px;
+    left: 130px;
+}
+
+.c2 {
+    width: 85px;
+    height: 85px;
+    top: 130px;
+    right: 28%;
+}
+
+.c3 {
+    width: 110px;
+    height: 110px;
+    bottom: 90px;
+    left: 26%;
+}
+
+
+/* =========================================
+   6. CONTEÚDO PRINCIPAL
+========================================= */
+
+.hero-conteudo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 65px;
+    width: 100%;
+    max-width: 1150px;
+    flex: 1;
+    margin: 0 auto;
+    padding: 40px 30px 70px;
+}
+
+
+/* =========================================
+   7. CARROSSEL DE IMAGENS 3D
+========================================= */
+
+.hero-carrossel {
+    width: 460px;
+    max-width: 45%;
+    aspect-ratio: 3 / 2;
+    perspective: 1200px;
+}
+
+
+/* ELEMENTO QUE GIRA */
+
+.carrossel-giro {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: girarImagens 10s infinite ease-in-out;
+}
+
+
+/* FOTOS */
+
+.hero-foto {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(69, 201, 154, 0.30);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        0 0 35px rgba(69, 201, 154, 0.12);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* IMAGENS */
+
+.hero-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* PRIMEIRA FOTO */
+
+.foto-frente {
+    transform: rotateY(0deg);
+}
+
+
+/* SEGUNDA FOTO */
+
+.foto-verso {
+    transform: rotateY(180deg);
+}
+
+
+/* ANIMAÇÃO DE ROTAÇÃO */
+
+@keyframes girarImagens {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    40% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+
+    90% {
+        transform: rotateY(180deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+
+/* =========================================
+   8. TEXTO PRINCIPAL
+========================================= */
+
+.hero-texto {
+    max-width: 480px;
+    flex: 1;
+}
+
+
+/* ETIQUETA */
+
+.etiqueta {
+    color: var(--verde-esmeralda);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+
+/* TÍTULO */
+
+.hero-texto h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+
+/* DESCRIÇÃO */
+
+.descricao {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--texto);
+    margin-bottom: 32px;
+}
+
+
+/* =========================================
+   9. BOTÃO PRINCIPAL
+========================================= */
+
+.botao-hero,
+.botao-todos {
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        90deg,
+        #279B75,
+        #45C99A
+    );
+
+    color: #082219;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.botao-hero:hover,
+.botao-todos:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 25px rgba(69, 201, 154, 0.25);
+}
+
+
+/* =========================================
+   10. SEÇÃO DE CONTEÚDOS
+========================================= */
+
+.conteudos {
+    position: relative;
+    padding: 90px 24px;
+    text-align: center;
+
+    background: linear-gradient(
+        180deg,
+        #0B1F1A,
+        #12352B
+    );
+
+    border-top: 1px solid var(--borda);
+}
+
+
+/* TÍTULO */
+
+.conteudos h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 32px;
+    color: var(--branco);
+    margin-bottom: 16px;
+}
+
+
+/* SUBTÍTULO */
+
+.subtitulo {
+    color: var(--texto);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto 45px;
+    max-width: 650px;
+}
+
+
+/* =========================================
+   11. CARDS
+========================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+/* CARD */
+
+.card {
+    display: block;
+    background: var(--verde-card);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+
+    transition: 0.3s;
+
+    /* Remove aparência padrão de link */
+    text-decoration: none;
+    color: var(--branco);
+}
+
+/* Mantém a cor mesmo depois de visitar o link */
+.card:visited {
+    color: var(--branco);
+}
+
+
+/* EFEITO */
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--verde-esmeralda);
+
+    box-shadow:
+        0 12px 30px rgba(69, 201, 154, 0.12);
+}
+
+
+/* IMAGENS DOS CARDS */
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: var(--verde-petroleo);
+}
+
+
+/* CORPO */
+
+.card-corpo {
+    padding: 25px 22px 28px;
+}
+
+
+/* TÍTULO DOS CARDS */
+
+.card-corpo h3 {
+    font-size: 19px;
+    color: var(--branco);
+    margin-bottom: 14px;
+}
+
+
+/* DESCRIÇÃO DOS CARDS */
+
+.card-corpo p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--texto);
+    margin-bottom: 22px;
+}
+
+
+/* LINKS E SAIBA MAIS DOS CARDS */
+
+.card-corpo a,
+.card-corpo .saiba-mais {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--verde-esmeralda);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+/* EFEITO DO SAIBA MAIS */
+
+.card-corpo a:hover,
+.card-corpo .saiba-mais:hover {
+    color: #8BE6C0;
+}
+
+
+/* =========================================
+   12. BOTÃO VER TODOS
+========================================= */
+
+.botao-todos {
+    margin-top: 45px;
+}
+
+
+/* =========================================
+   13. RODAPÉ
+========================================= */
+
+.rodape {
+    background: #081914;
+    border-top: 1px solid var(--borda);
+    color: var(--texto);
+    padding: 55px 24px 0;
+}
+
+
+/* ORGANIZAÇÃO */
+
+.rodape-grade {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 35px;
+    font-size: 14px;
+    padding-bottom: 45px;
+}
+
+
+/* LOGO */
+
+.rodape-logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 25px;
+    color: var(--branco);
+    margin-bottom: 15px;
+}
+
+.rodape-logo span {
+    color: var(--verde-esmeralda);
+}
+
+
+/* DESCRIÇÃO */
+
+.rodape-sobre p:last-child {
+    line-height: 1.7;
+    max-width: 260px;
+}
+
+
+/* TÍTULOS */
+
+.rodape h4 {
+    color: var(--verde-esmeralda);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+/* LINKS */
+
+.rodape-grade a {
+    display: block;
+    color: var(--texto);
+    margin-bottom: 14px;
+    transition: 0.3s;
+}
+
+.rodape-grade a:hover {
+    color: var(--verde-esmeralda);
+    transform: translateX(4px);
+}
+
+
+/* FINAL DO RODAPÉ */
+
+.rodape-final {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    padding: 22px 10px;
+    font-size: 12px;
+    color: #829B8F;
+}
+
+
+/* =========================================
+   14. RESPONSIVIDADE - TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .hero-conteudo {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 35px;
+        padding: 50px 24px;
+    }
+
+    .hero-carrossel {
+        width: 350px;
+        max-width: 80%;
+    }
+
+    .hero-texto h1 {
+        font-size: 36px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rodape-grade {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================================
+   15. RESPONSIVIDADE - CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* MENU */
+
+    .menu {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu ul {
+        gap: 18px;
+    }
+
+    .menu ul a {
+        font-size: 13px;
+    }
+
+
+    /* HERO */
+
+    .hero-conteudo {
+        padding: 40px 22px 60px;
+    }
+
+    .hero-carrossel {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+    }
+
+    .hero-texto h1 {
+        font-size: 30px;
+    }
+
+
+    /* CONTEÚDOS */
+
+    .conteudos {
+        padding: 65px 20px;
+    }
+
+    .conteudos h2 {
+        font-size: 25px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* RODAPÉ */
+
+    .rodape-grade {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}

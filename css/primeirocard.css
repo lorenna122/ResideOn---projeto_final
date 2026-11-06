@@ -1,0 +1,525 @@
+
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #F0F2F6;
+    color: #26352F;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   2. MENU LATERAL ESQUERDO
+========================================= */
+
+.sidebar {
+    width: 210px;
+    min-height: 100vh;
+    background: #0B1F1A;
+    color: #EAF5EF;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 15px;
+    flex-shrink: 0;
+}
+
+/* LOGO */
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #EAF5EF;
+
+    margin: 0 10px 55px;
+}
+
+.logo span {
+    color: #45C99A;
+}
+
+
+/* LINKS DO MENU */
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.menu-lateral a {
+    padding: 13px 12px;
+    border-radius: 6px;
+
+    font-size: 12px;
+    color: #C0D8CC;
+
+    transition: 0.3s;
+}
+
+.menu-lateral a span {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.menu-lateral a:hover,
+.menu-lateral a.ativo {
+    background: #1B493A;
+    color: #45C99A;
+}
+
+
+/* BOTÃO SAIR */
+
+.sidebar-final {
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 15px;
+}
+
+.sidebar-final a {
+    display: block;
+    padding: 12px;
+
+    color: #C0D8CC;
+    font-size: 12px;
+}
+
+.sidebar-final a:hover {
+    color: #45C99A;
+}
+
+
+/* =========================================
+   3. ÁREA PRINCIPAL
+========================================= */
+
+.principal {
+    flex: 1;
+    min-width: 0;
+    padding: 35px 30px;
+}
+
+.conteudo {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =========================================
+   4. CABEÇALHO
+========================================= */
+
+.cabecalho {
+    margin-bottom: 25px;
+}
+
+.cabecalho h1 {
+    font-size: 23px;
+    color: #12352B;
+    margin-bottom: 8px;
+}
+
+.cabecalho p {
+    font-size: 12px;
+    color: #87948D;
+}
+
+
+/* =========================================
+   5. FILTROS
+========================================= */
+
+.filtros {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    padding: 18px 0;
+
+    border-top: 1px solid #DCE4DF;
+    border-bottom: 1px solid #DCE4DF;
+}
+
+.filtros > span {
+    font-size: 11px;
+    color: #78877F;
+}
+
+
+/* BOTÕES DOS FILTROS */
+
+.filtro {
+    border: none;
+    background: #E7ECE9;
+
+    padding: 9px 14px;
+    border-radius: 20px;
+
+    font-family: inherit;
+    font-size: 10px;
+    color: #64736B;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtro.ativo,
+.filtro:hover {
+    background: #DDF3E9;
+    color: #167653;
+}
+
+
+/* CAMPO DE BUSCA */
+
+.filtros input {
+    margin-left: auto;
+
+    width: 180px;
+    padding: 10px;
+
+    border: 1px solid #DCE4DF;
+    border-radius: 5px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 10px;
+}
+
+.filtros input:focus {
+    border-color: #45C99A;
+}
+
+
+/* =========================================
+   6. LISTAGEM DE CONTEÚDOS
+========================================= */
+
+.lista-conteudos {
+    background: #FFFFFF;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+    padding: 22px 5px;
+
+    border-bottom: 1px solid #E1E8E4;
+
+    transition: 0.3s;
+}
+
+.item:hover {
+    background: #F9FCFA;
+}
+
+
+/* ÍCONES */
+
+.item-icone {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+    background: #E6F4ED;
+    color: #279B75;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+/* INFORMAÇÕES */
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #26352F;
+}
+
+.item-info p {
+    font-size: 10px;
+    color: #839087;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   7. REMOVER STATUS PLANEJADO
+========================================= */
+
+.status {
+    display: none;
+}
+
+
+/* =========================================
+   8. BOTÃO VISUALIZAR
+========================================= */
+
+.item > a {
+    color: #279B75;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    padding: 8px 12px;
+
+    border: 1px solid #279B75;
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.item > a:hover {
+    background: #279B75;
+    color: #FFFFFF;
+}
+
+
+/* =========================================
+   9. PAINEL DIREITO
+========================================= */
+
+.painel-direito {
+    width: 270px;
+    min-height: 100vh;
+
+    background: #111B25;
+    color: #EAF5EF;
+
+    padding: 28px 20px;
+    flex-shrink: 0;
+}
+
+
+/* CABEÇALHO DO PAINEL */
+
+.painel-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #293743;
+}
+
+.painel-topo h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+}
+
+.indicador {
+    font-size: 9px;
+    color: #45C99A;
+}
+
+
+/* =========================================
+   10. ATIVIDADES RECENTES
+========================================= */
+
+.atividades {
+    margin-top: 30px;
+}
+
+.atividades > h3 {
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.atividade {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #293743;
+}
+
+
+/* ÍCONES DAS ATIVIDADES */
+
+.atividade-icone {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 7px;
+    background: #263C3A;
+    color: #45C99A;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+/* TEXTOS DAS ATIVIDADES */
+
+.atividade h4 {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.atividade p {
+    font-size: 9px;
+    color: #91A29D;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   11. DESTAQUE
+========================================= */
+
+.destaque {
+    margin-top: 35px;
+    padding: 18px;
+
+    border-radius: 10px;
+    background: #1B493A;
+}
+
+.destaque h3 {
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.destaque p {
+    font-size: 10px;
+    color: #C0D8CC;
+
+    line-height: 1.7;
+    margin-bottom: 17px;
+}
+
+.destaque a {
+    display: block;
+    text-align: center;
+
+    padding: 10px;
+    border-radius: 6px;
+
+    background: #45C99A;
+    color: #0B1F1A;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.destaque a:hover {
+    background: #279B75;
+    color: #FFFFFF;
+}
+
+
+/* =========================================
+   12. RESPONSIVIDADE - TABLETS
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .painel-direito {
+        display: none;
+    }
+
+}
+
+
+/* =========================================
+   13. RESPONSIVIDADE - CELULARES
+========================================= */
+
+@media (max-width: 700px) {
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin: 0 5px 20px;
+    }
+
+    .menu-lateral {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-lateral a {
+        font-size: 10px;
+        padding: 9px;
+    }
+
+    .sidebar-final {
+        display: none;
+    }
+
+    .principal {
+        padding: 25px 15px;
+    }
+
+    .cabecalho h1 {
+        font-size: 20px;
+    }
+
+    .filtros input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .item-info {
+        min-width: 60%;
+    }
+
+}
