@@ -1,306 +1,182 @@
-
-<!DOCTYPE html>
+<!--Estrutura básica doo html-->
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--aparece na aba do navegador-->
     <title>ResideOn</title>
 
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontes do google fontes - isso deixa o carregamento mais rápido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- liga o html ao css -->
+    <link rel="stylesheet" href="../css/inicio.css" />
+  </head>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/inicio.css">
-
-</head>
-
-<body>
-
-    <!-- =================================
-         TELA 1: INÍCIO
-    ================================== -->
-
+  <body>
+    <!--abre o cabeçalho principal-->
     <header class="hero">
+      <!-- MENU -->
+      <!-- nav é a área de navegação -->
+      <nav class="menu">
+        <!-- # ta me levando para o topo da página -->
+        <a href="#" class="logo"> Reside<span>On</span> </a>
 
-        <!-- MENU -->
-        <nav class="menu">
+        <!-- Está criando uma lista - ul (não ordenada) -->
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#conteudos">Conteúdos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
 
-            <a href="#" class="logo">
-                Reside<span>On</span>
-            </a>
+      <!-- CÍRCULOS DECORATIVOS - elementos vazios (ENFEITE) ajeito no css -->
+      <!--<span> - tag neutra (Só existe para o CSS conseguir “agarrar” aquele trecho.)-->
+      <span class="circulo c1"></span>
+      <span class="circulo c2"></span>
+      <span class="circulo c3"></span>
 
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#conteudos">Conteúdos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-
-        </nav>
-
-
-        <!-- CÍRCULOS DECORATIVOS -->
-        <span class="circulo c1"></span>
-        <span class="circulo c2"></span>
-        <span class="circulo c3"></span>
-
-
-        <!-- CONTEÚDO PRINCIPAL -->
-        <div class="hero-conteudo">
-
-            <!-- CARROSSEL 3D -->
-            <div class="hero-carrossel">
-
-                <div class="carrossel-giro">
-
-                    <!-- PRIMEIRA IMAGEM -->
-                    <div class="hero-foto foto-frente">
-
-                        <img
-                            src="../img/estudantes.jpg"
-                            alt="Estudantes de medicina"
-                        >
-
-                    </div>
-
-
-                    <!-- SEGUNDA IMAGEM -->
-                    <div class="hero-foto foto-verso">
-
-                        <img
-                            src="../img/medico.jpg"
-                            alt="Residentes da área da saúde"
-                        >
-
-                    </div>
-
-                </div>
-
+      <!-- CONTEÚDO PRINCIPAL - agrupa o carrossel e o texto lado a lado. -->
+      <div class="hero-conteudo">
+        <!-- CARROSSEL 3D -->
+        <!--Define o tamanho e a posição, e dá a perspectiva 3D-->
+        <!--Hero - protagonista do site-->
+        <div class="hero-carrossel">
+          <!--É a parte que roda-->
+          <div class="carrossel-giro">
+            <!-- PRIMEIRA IMAGEM -->
+            <div class="hero-foto foto-frente">
+              <img src="../img/estudantes.jpg" alt="Estudantes de medicina" />
             </div>
 
-
-            <!-- TEXTO PRINCIPAL -->
-            <div class="hero-texto">
-
-                <p class="etiqueta">
-                    Conteúdos Exclusivos
-                </p>
-
-                <h1>
-                    Residência em Anestesiologia / Psicologia
-                </h1>
-
-                <p class="descricao">
-
-                    Casos clínicos, materiais e trilhas de estudo
-                    para acompanhar sua jornada na residência.
-
-                    Não é apenas estudar. É evoluir na sua jornada.
-
-                </p>
-
-                <a href="#conteudos" class="botao-hero">
-                    Saiba mais
-                </a>
-
+            <!-- SEGUNDA IMAGEM -->
+            <div class="hero-foto foto-verso">
+              <img src="../img/medico.jpg" alt="Residentes da área da saúde" />
             </div>
-
+          </div>
         </div>
 
+        <!-- TEXTO PRINCIPAL - guarda os textos ao lado do carrossel. -->
+        <div class="hero-texto">
+          <!--acima do título.-->
+          <p class="etiqueta">Conteúdos Exclusivos</p>
+
+          <!--O título principal da página-->
+          <h1>Residência em Anestesiologia / Psicologia</h1>
+          <!--texto de apoio-->
+          <p class="descricao">
+            Casos clínicos, materiais e trilhas de estudo para acompanhar sua
+            jornada na residência. Não é apenas estudar. É evoluir na sua
+            jornada.
+          </p>
+
+          <!-- link estilizado como botão. Ao clicar, desce até a seção id="conteudos"-->
+          <a href="#conteudos" class="botao-hero"> Saiba mais </a>
+        </div>
+      </div>
     </header>
 
-
-
-    <!-- =================================
-         TELA 2: CONTEÚDOS
-    ================================== -->
-
+    <!--Conteúdo principal. O id é o endereço para onde os links #conteudos do menu e do botão levam-->
     <main class="conteudos" id="conteudos">
-
-        <h2>Explore nossos conteúdos</h2>
-
-        <p class="subtitulo">
-
-            Conhecimento e aprendizado para acompanhar
-            sua jornada na residência.
-
-        </p>
-
-
-        <!-- CARDS -->
-        <div class="cards">
-
-
-            <!-- CARD 1: MEDICINA E PSICOLOGIA -->
-            <a href="primeirocard.html" class="card">
-
-                <img
-                    src="../img/cad-1.jpg"
-                    alt="Medicina e Psicologia"
-                >
-
-                <div class="card-corpo">
-
-                    <h3>Residência em Anestesiologia</h3>
-
-                    <p>
-                        Conheça as possibilidades de formação
-                        nas diferentes áreas da saúde.
-                    </p>
-
-                    <span class="saiba-mais">
-                        Saiba mais
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- CARD 2 -->
-            <article class="card">
-
-                <img
-                    src="../img/aneste.jpg"
-                    alt="Residência em Anestesiologia"
-                >
-
-                <div class="card-corpo">
-
-                    <h3>Residência em Anestesiologia</h3>
-
-                    <p>
-                        Explore conhecimentos e situações
-                        da prática anestesiológica.
-                    </p>
-
-                    <a href="#">
-                        Saiba mais
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- CARD 3 -->
-            <article class="card">
-
-                <img
-                    src="../img/materiais_estudo.jpg"
-                    alt="Materiais de estudo"
-                >
-
-                <div class="card-corpo">
-
-                    <h3>Materiais de estudo</h3>
-
-                    <p>
-                        Acesse conteúdos que podem complementar
-                        sua preparação.
-                    </p>
-
-                    <a href="#">
-                        Saiba mais
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <a href="#" class="botao-todos">
-            Ver todos os conteúdos
-        </a>
-
-    </main>
-
-
-
-    <!-- =================================
-         RODAPÉ
-    ================================== -->
-
-    <footer class="rodape" id="contato">
-
-        <div class="rodape-grade">
-
-
-            <!-- SOBRE -->
-            <div class="rodape-sobre">
-
-                <p class="rodape-logo">
-                    Reside<span>On</span>
-                </p>
-
-                <p>
-                    Não é apenas estudar.
-                    É evoluir. É ser ResideOn.
-                </p>
-
-            </div>
-
-
-
-            <!-- EXPLORAR -->
-            <div>
-
-                <h4>Explorar</h4>
-
-                <a href="#">Início</a>
-                <a href="#">Medicina</a>
-                <a href="#">Psicologia</a>
-
-            </div>
-
-
-
-            <!-- APRENDIZADO -->
-            <div>
-
-                <h4>Aprendizado</h4>
-
-                <a href="#">Casos clínicos</a>
-                <a href="#">Materiais</a>
-                <a href="#">Trilhas de estudo</a>
-
-            </div>
-
-
-
-            <!-- RESIDEON -->
-            <div>
-
-                <h4>ResideOn</h4>
-
-                <a href="#">Sobre o projeto</a>
-                <a href="#">Entrar</a>
-                <a href="#">Contato</a>
-
-            </div>
-
-        </div>
-
-
-        <!-- FINAL DO RODAPÉ -->
-        <div class="rodape-final">
+      <h2>Explore nossos conteúdos</h2>
+      <!--Subtitulo-->
+      <p class="subtitulo">
+        Conhecimento e aprendizado para acompanhar sua jornada na residência.
+      </p>
+
+      <!-- CARDS - está agrupando -->
+      <div class="cards">
+        <!-- CARD 1: o card inteiro é um link - em qualquer parte que eu clicar leva para oq eu quero -->
+        <a href="primeirocard.html" class="card">
+          <img src="../img/aneste.jpg" alt="Medicina e Psicologia" />
+
+          <div class="card-corpo">
+            <h3>Residência em Anestesiologia</h3>
 
             <p>
-                © 2026 ResideOn. Todos os direitos reservados a Lorenna Andrade.
+              Conheça as possibilidades de de melhorar o seu preparo 
+              para anestesiologia.
             </p>
 
+            <span class="saiba-mais"> Saiba mais </span>
+          </div>
+        </a>
+
+        <!-- CARD 2: o card inteiro é um link -->
+        <a href="segundocard.html" class="card">
+          <img src="../img/cad-1.jpg" alt="Residência em Psicologia" />
+
+          <div class="card-corpo">
+            <h3>Residência em Psicologia</h3>
+
+            <p>Explore conhecimentos e situações da prática anestesiológica.</p>
+
+            <span class="saiba-mais"> Saiba mais </span>
+          </div>
+        </a>
+
+        <!-- CARD 3: o card inteiro é um link -->
+        <a href="terceirocard.html" class="card">
+          <img src="../img/materiais_estudo.jpg" alt="Materiais de estudo" />
+
+          <div class="card-corpo">
+            <h3>Materiais de estudo</h3>
+
+            <p>Acesse conteúdos que podem complementar sua preparação.</p>
+
+            <span class="saiba-mais"> Saiba mais </span>
+          </div>
+        </a>
+      </div>
+    </main>
+    
+    <!-- o rodapé. O id="contato" é o destino do link “Contato” do menu.-->
+    <footer class="rodape" id="contato">
+      <!--organiza as 4 colunas do rodapé-->
+      <div class="rodape-grade">
+        <!-- SOBRE -->
+        <div class="rodape-sobre">
+          <p class="rodape-logo">Reside<span>On</span></p>
+
+          <p>Não é apenas estudar. É evoluir. É ser ResideOn.</p>
         </div>
 
+        <!-- EXPLORAR - links que me levam para outras páginas -->
+        <div>
+          <h4>Explorar</h4>
+
+          <a href="inicio.html">Início</a>
+          <a href="primeirocard.html">Medicina</a>
+          <a href="segundocard.html">Psicologia</a>
+        </div>
+
+        <!-- APRENDIZADO -->
+        <div>
+          <h4>Aprendizado</h4>
+
+          <a href="casos-clinicos.html">Casos clínicos</a>
+          <a href="terceirocard.html">Materiais</a>
+          <a href="biblioteca-psicologia.html">Biblioteca de Psicologia</a>
+        </div>
+
+        <!-- RESIDEON -->
+        <div>
+          <h4>ResideOn</h4>
+
+          <a href="sobre.html">Sobre o projeto</a>
+        </div>
+      </div>
+
+      <!-- FINAL DO RODAPÉ -->
+      <div class="rodape-final">
+        <p>© 2026 ResideOn. Todos os direitos reservados a Lorenna Andrade.</p>
+      </div>
     </footer>
-
-
-</body>
+  </body>
 </html>

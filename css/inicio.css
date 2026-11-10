@@ -1,52 +1,44 @@
-
-/* =========================================
-   1. VARIÁVEIS DE CORES
-========================================= */
-
+/*Vou usar em qualquer lugar no css quando eu chamar*/
 :root {
     --verde-escuro: #0B1F1A;
     --verde-petroleo: #12352B;
     --verde-card: #1B493A;
-
     --verde-esmeralda: #45C99A;
     --verde-botao: #279B75;
-
     --branco: #EAF5EF;
     --texto: #C0D8CC;
-
     --borda: rgba(69, 201, 154, 0.20);
 }
 
-
-/* =========================================
-   2. CONFIGURAÇÕES GERAIS
-========================================= */
-
+/*Todos os elementos da página vão ter isso. margin- 0 remove o espaço de fora, padding: 0 remove o espaço de dentro, box-sizing:
+incluir o padding e a borda*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+/*a página vai rolar suavemente*/
 html {
     scroll-behavior: smooth;
 }
-
+/*define a fonte e se n pegar a primeira vai para a segunda. pinta o fundo com a variável
+do root. define a cor padrão do texto */
 body {
     font-family: "Montserrat", Arial, sans-serif;
     background: var(--verde-escuro);
     color: var(--branco);
 }
-
+/*Tirei o sublinhado*/
 a {
     text-decoration: none;
 }
 
-
-/* =========================================
-   3. TELA PRINCIPAL
-========================================= */
-
+/*Primeira tela do site - position: relative a referência para 
+posicionar os elementos*/
+/*Ativei o flexbox - consigo organizar os elementos */
+/*Coloquei o overflow para controlar o que acontece quando
+algum conteúdo ultrapassar os limites do elemento - hidden está
+escondendo oq está passando*/
 .hero {
     position: relative;
     min-height: 100vh;
@@ -58,16 +50,13 @@ a {
         #1B493A,
         #0B1F1A 70%
     );
-
     color: var(--branco);
     overflow: hidden;
 }
 
-
-/* =========================================
-   4. MENU DE NAVEGAÇÃO
-========================================= */
-
+/*Com o display flex colocquei o logo e a lista lado a lado.*/
+/*No justify-content: space-betweenos os elementos estao horizontalmente
+e está com espaço e com o align esta alinhando com base no centro.*/
 .menu {
     position: relative;
     z-index: 5;
@@ -78,22 +67,19 @@ a {
     border-bottom: 1px solid var(--borda);
 }
 
-
-/* LOGO */
-
+/*Estilizando a logo*/
 .logo {
     font-family: "Orbitron", sans-serif;
     font-size: 28px;
     color: var(--branco);
 }
-
+/*Estilizei o ON do reside*/
 .logo span {
     color: var(--verde-esmeralda);
 }
 
-
-/* LINKS */
-
+/*o gap me da o espaço entre os elementos e o list está
+tirando as bolinhas*/
 .menu ul {
     display: flex;
     gap: 32px;
@@ -106,16 +92,13 @@ a {
     font-weight: 600;
     transition: 0.3s;
 }
-
+/*mudança da cor*/
 .menu ul a:hover {
     color: var(--verde-esmeralda);
 }
 
-
-/* =========================================
-   5. CÍRCULOS DECORATIVOS
-========================================= */
-
+/*estilo padrao dos circulos. Estou usando o relative do hero.
+O pointer-events n vai deixar interferir nos cliques*/
 .circulo {
     position: absolute;
     border: 1px solid rgba(139, 230, 192, 0.15);
@@ -144,11 +127,8 @@ a {
     left: 26%;
 }
 
-
-/* =========================================
-   6. CONTEÚDO PRINCIPAL
-========================================= */
-
+/*guarda o carrossel e o texto lado a lado*/
+/*max-width nunca vai passar do que mandar para n se espalhar dms*/
 .hero-conteudo {
     position: relative;
     z-index: 1;
@@ -163,11 +143,9 @@ a {
     padding: 40px 30px 70px;
 }
 
-
-/* =========================================
-   7. CARROSSEL DE IMAGENS 3D
-========================================= */
-
+/*terá 45% do elemento pai.
+3/2  proporção - 3 partes de largura vai ter 2 
+partes de altura. Perpective me da sensação de profundidade */
 .hero-carrossel {
     width: 460px;
     max-width: 45%;
@@ -175,9 +153,10 @@ a {
     perspective: 1200px;
 }
 
-
-/* ELEMENTO QUE GIRA */
-
+/*Esse transform-style está permitindo que os elementos matenham
+suas posilçoes no espao 3d*/
+/*O animation liga uma animação em um elemento*/
+/*O girar imagem está vindo do codigo @keyframes girarImagens*/
 .carrossel-giro {
     position: relative;
     width: 100%;
@@ -186,9 +165,9 @@ a {
     animation: girarImagens 10s infinite ease-in-out;
 }
 
-
-/* FOTOS */
-
+/*No box-shadow - a primeira cria uma sombra escura e a segunda cria um
+brilho verde*/
+/*backface-visibility: hidden - controla se a parte de trás de um elemento pode ser vista quando ele é girado.*/
 .hero-foto {
     position: absolute;
     width: 100%;
@@ -202,12 +181,12 @@ a {
         0 0 35px rgba(69, 201, 154, 0.12);
 
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 }
 
-
-/* IMAGENS */
-
+/*Estou usando o block pq por padrão as imagens são inline, o 
+block faz a img ocupar uma linha própria*/
+/*O object-fit faz a imagem preencher completamente a caixa
+mesmo que precise cortar umas partes*/
 .hero-foto img {
     display: block;
     width: 100%;
@@ -215,58 +194,43 @@ a {
     object-fit: cover;
 }
 
-
-/* PRIMEIRA FOTO */
-
+/*a img vai girar em torno do eixo y, mas como esta
+0 a primeira n gira*/
 .foto-frente {
     transform: rotateY(0deg);
 }
-
-
-/* SEGUNDA FOTO */
-
+/*fica girada para o lado contrário*/
 .foto-verso {
     transform: rotateY(180deg);
 }
 
-
-/* ANIMAÇÃO DE ROTAÇÃO */
-
+/*Esta criando uma animação.
+As porcentagens são os progressos da minha animação, ou seja, é tempo e pausa.*/
 @keyframes girarImagens {
     0% {
         transform: rotateY(0deg);
     }
-
     40% {
         transform: rotateY(0deg);
     }
-
     50% {
         transform: rotateY(180deg);
     }
-
     90% {
         transform: rotateY(180deg);
     }
-
     100% {
         transform: rotateY(360deg);
     }
 }
-
-
-/* =========================================
-   8. TEXTO PRINCIPAL
-========================================= */
-
+/*flex - 1 está permitindo que o elemento
+ participe da divisão do espaço disponível*/
 .hero-texto {
     max-width: 480px;
     flex: 1;
 }
 
-
-/* ETIQUETA */
-
+/*margin-bottom (cria uma margem externa na parte inferior do elemento)*/
 .etiqueta {
     color: var(--verde-esmeralda);
     font-weight: 700;
@@ -275,18 +239,12 @@ a {
     margin-bottom: 12px;
 }
 
-
-/* TÍTULO */
-
 .hero-texto h1 {
     font-family: "Orbitron", sans-serif;
     font-size: 46px;
     line-height: 1.2;
     margin-bottom: 20px;
 }
-
-
-/* DESCRIÇÃO */
 
 .descricao {
     font-size: 15px;
@@ -295,58 +253,43 @@ a {
     margin-bottom: 32px;
 }
 
-
-/* =========================================
-   9. BOTÃO PRINCIPAL
-========================================= */
-
-.botao-hero,
-.botao-todos {
+/*o inline-block mistura os dois comportamentos*/
+/*No linear - gradiente as cores estao se misturando 
+seguindo uma direçao para direita*/
+.botao-hero {
     display: inline-block;
     padding: 14px 34px;
     border-radius: 30px;
-
     background: linear-gradient(
         90deg,
         #279B75,
         #45C99A
     );
-
     color: #082219;
     font-weight: 700;
     font-size: 14px;
     transition: 0.3s;
 }
-
-.botao-hero:hover,
-.botao-todos:hover {
+/*valor negativo está subindo*/
+.botao-hero:hover {
     transform: translateY(-4px);
 
     box-shadow:
         0 8px 25px rgba(69, 201, 154, 0.25);
 }
 
-
-/* =========================================
-   10. SEÇÃO DE CONTEÚDOS
-========================================= */
-
+/*O border-top - cria uma borda somente na parte superior da seção*/
 .conteudos {
     position: relative;
     padding: 90px 24px;
     text-align: center;
-
     background: linear-gradient(
         180deg,
         #0B1F1A,
         #12352B
     );
-
     border-top: 1px solid var(--borda);
 }
-
-
-/* TÍTULO */
 
 .conteudos h2 {
     font-family: "Orbitron", sans-serif;
@@ -354,9 +297,6 @@ a {
     color: var(--branco);
     margin-bottom: 16px;
 }
-
-
-/* SUBTÍTULO */
 
 .subtitulo {
     color: var(--texto);
@@ -366,11 +306,11 @@ a {
     max-width: 650px;
 }
 
-
-/* =========================================
-   11. CARDS
-========================================= */
-
+/*O grid está me permitindo organizar os elementos em linhas e colunas*/
+/*grid-template-columns:quantas colunas sua grade terá e qual será o 
+tamanho delas, nesse caso vou repetir 3 vezes e cada uma recebe uma 
+fração igual do espaço que ta disponivel  */
+/*o margin 0 auto esta centralizando*/
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -379,9 +319,6 @@ a {
     margin: 0 auto;
     text-align: left;
 }
-
-
-/* CARD */
 
 .card {
     display: block;
@@ -397,15 +334,15 @@ a {
     /* Remove aparência padrão de link */
     text-decoration: none;
     color: var(--branco);
+
+    /* Mostra a mãozinha em qualquer parte do card */
+    cursor: pointer;
 }
 
 /* Mantém a cor mesmo depois de visitar o link */
 .card:visited {
     color: var(--branco);
 }
-
-
-/* EFEITO */
 
 .card:hover {
     transform: translateY(-8px);
@@ -415,9 +352,6 @@ a {
         0 12px 30px rgba(69, 201, 154, 0.12);
 }
 
-
-/* IMAGENS DOS CARDS */
-
 .card img {
     display: block;
     width: 100%;
@@ -426,25 +360,19 @@ a {
     background: var(--verde-petroleo);
 }
 
-
 /* CORPO */
-
 .card-corpo {
     padding: 25px 22px 28px;
 }
 
-
 /* TÍTULO DOS CARDS */
-
 .card-corpo h3 {
     font-size: 19px;
     color: var(--branco);
     margin-bottom: 14px;
 }
 
-
 /* DESCRIÇÃO DOS CARDS */
-
 .card-corpo p {
     font-size: 14px;
     line-height: 1.7;
@@ -452,9 +380,8 @@ a {
     margin-bottom: 22px;
 }
 
-
 /* LINKS E SAIBA MAIS DOS CARDS */
-
+/*a virgula me permite aplicar o mesmo CSS em dois seletores diferentes*/
 .card-corpo a,
 .card-corpo .saiba-mais {
     display: inline-block;
@@ -465,27 +392,11 @@ a {
     transition: 0.3s;
 }
 
-
 /* EFEITO DO SAIBA MAIS */
-
 .card-corpo a:hover,
 .card-corpo .saiba-mais:hover {
     color: #8BE6C0;
 }
-
-
-/* =========================================
-   12. BOTÃO VER TODOS
-========================================= */
-
-.botao-todos {
-    margin-top: 45px;
-}
-
-
-/* =========================================
-   13. RODAPÉ
-========================================= */
 
 .rodape {
     background: #081914;
@@ -494,70 +405,54 @@ a {
     padding: 55px 24px 0;
 }
 
-
-/* ORGANIZAÇÃO */
-
 .rodape-grade {
     max-width: 1100px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-
     gap: 35px;
     font-size: 14px;
     padding-bottom: 45px;
 }
 
-
 /* LOGO */
-
 .rodape-logo {
     font-family: "Orbitron", sans-serif;
     font-size: 25px;
     color: var(--branco);
     margin-bottom: 15px;
 }
-
 .rodape-logo span {
     color: var(--verde-esmeralda);
 }
 
-
 /* DESCRIÇÃO */
-
+/*estou pegando o último elemento que esta dentro do pai*/
 .rodape-sobre p:last-child {
     line-height: 1.7;
     max-width: 260px;
 }
 
-
 /* TÍTULOS */
-
 .rodape h4 {
     color: var(--verde-esmeralda);
     font-size: 16px;
     margin-bottom: 20px;
 }
 
-
 /* LINKS */
-
 .rodape-grade a {
     display: block;
     color: var(--texto);
     margin-bottom: 14px;
     transition: 0.3s;
 }
-
 .rodape-grade a:hover {
     color: var(--verde-esmeralda);
     transform: translateX(4px);
 }
 
-
 /* FINAL DO RODAPÉ */
-
 .rodape-final {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
@@ -565,102 +460,45 @@ a {
     font-size: 12px;
     color: #829B8F;
 }
-
-
-/* =========================================
-   14. RESPONSIVIDADE - TABLETS
-========================================= */
-
-@media (max-width: 900px) {
-
-    .hero-conteudo {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        gap: 35px;
-        padding: 50px 24px;
-    }
-
-    .hero-carrossel {
-        width: 350px;
-        max-width: 80%;
-    }
-
-    .hero-texto h1 {
-        font-size: 36px;
-    }
-
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .rodape-grade {
-        grid-template-columns: 1fr 1fr;
-    }
-
-}
-
-
-/* =========================================
-   15. RESPONSIVIDADE - CELULARES
-========================================= */
-
+/*esta adptando para celular*/
 @media (max-width: 600px) {
-
     /* MENU */
-
     .menu {
         padding: 20px;
         flex-direction: column;
         gap: 20px;
     }
-
     .menu ul {
         gap: 18px;
     }
-
     .menu ul a {
         font-size: 13px;
     }
-
-
     /* HERO */
-
     .hero-conteudo {
         padding: 40px 22px 60px;
     }
-
     .hero-carrossel {
         width: 100%;
         max-width: 100%;
         aspect-ratio: 16 / 10;
     }
-
     .hero-texto h1 {
         font-size: 30px;
     }
-
-
     /* CONTEÚDOS */
-
     .conteudos {
         padding: 65px 20px;
     }
-
     .conteudos h2 {
         font-size: 25px;
     }
-
     .cards {
         grid-template-columns: 1fr;
     }
-
-
     /* RODAPÉ */
-
     .rodape-grade {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-
 }
